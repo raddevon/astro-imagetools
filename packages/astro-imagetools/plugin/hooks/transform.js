@@ -7,7 +7,7 @@ import { cwd } from "../../utils/runtimeChecks.js";
 const regexTestPattern =
   /<img\s+src\s*=(?:"|')([^("|')]*)(?:"|')\s*alt\s*=\s*(?:"|')([^("|')]*)(?:"|')[^>]*>/;
 const regexExecPattern = new RegExp(regexTestPattern, "gs");
-const regexRenderPattern = /\$\$render`(.*)`/gs;
+const regexRenderPattern = /\$\$render(.*)/gs;
 
 export default async function transform(code, id) {
   if (id.endsWith(".md") && regexTestPattern.test(code)) {
